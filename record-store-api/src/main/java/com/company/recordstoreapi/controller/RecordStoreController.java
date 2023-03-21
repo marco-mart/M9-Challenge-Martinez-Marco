@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
+import java.security.Principal;
 
 @RestController
 public class RecordStoreController {
@@ -24,6 +24,15 @@ public class RecordStoreController {
         recordList.add(new Record("The Beatles", "Revolver", "1964", idCounter++));
         recordList.add(new Record("Kanye West", "My Beautiful Dark Twisted Fantasy", "2008", idCounter++));
         recordList.add(new Record("Sturgill Simpson", "Metamodern Sounds in Country Music", "2010", idCounter++));
+    }
+
+    /**
+     * TEST. DELETE WHEN TURN IN
+     * */
+    @RequestMapping(value = "/hello", method = RequestMethod.GET)
+    public String hello(Principal principal) {
+
+        return principal.toString();
     }
 
     @RequestMapping(value = "/records", method = RequestMethod.POST)
