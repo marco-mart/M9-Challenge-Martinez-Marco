@@ -26,15 +26,6 @@ public class RecordStoreController {
         recordList.add(new Record("Sturgill Simpson", "Metamodern Sounds in Country Music", "2010", idCounter++));
     }
 
-    /**
-     * TEST. DELETE WHEN TURN IN
-     * */
-    @RequestMapping(value = "/hello", method = RequestMethod.GET)
-    public String hello(Principal principal) {
-
-        return principal.toString();
-    }
-
     @RequestMapping(value = "/records", method = RequestMethod.POST)
     @ResponseStatus(value = HttpStatus.CREATED)
     public Record createRecord(@RequestBody @Valid Record record) {
